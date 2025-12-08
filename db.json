@@ -30,7 +30,7 @@
       "description": "Test Desc",
       "priority": "medium",
       "order": 1,
-      "status": "todo"
+      "status": "inProgress"
     },
     {
       "id": "1e36",
@@ -55,6 +55,20 @@
       "priority": "medium",
       "order": 1,
       "status": "corbeille"
+    },
+    {
+      "id": "f70d",
+      "title": "Test ",
+      "description": "Test Desc\n",
+      "priority": "medium",
+      "status": "todo"
+    },
+    {
+      "id": "59f3",
+      "title": "Test ",
+      "description": "Test Desc",
+      "priority": "medium",
+      "status": "done"
     }
   ]
 }
