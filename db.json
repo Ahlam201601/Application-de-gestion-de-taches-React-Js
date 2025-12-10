@@ -1,5 +1,39 @@
 {
-  "tasks": [],
-
-  "trash": []
+  "tasks": [
+    {
+      "id": "5",
+      "title": "task1",
+      "description": "rttyuiytr",
+      "priority": "urgente",
+      "status": "todo",
+      "order": 0,
+      "deleted": false
+    },
+    {
+      "id": "10",
+      "title": "HHHH",
+      "description": "rttyuiytr",
+      "priority": "moyenne",
+      "status": "inprogress",
+      "order": 0
+    }
+  ],
+  "trash": [
+    {
+      "id": "7202",
+      "title": "task1",
+      "description": "rttyuiytr",
+      "priority": "moyenne",
+      "status": "done",
+      "order": 0
+    },
+    {
+      "id": "13",
+      "title": "HHH",
+      "description": "rttyuiytr",
+      "priority": "urgente",
+      "status": "done",
+      "order": 0
+    }
+  ]
 }
