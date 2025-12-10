@@ -23,15 +23,11 @@ export const restoreTask = async (task) => {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+export const deleteTaskForever = async (id) => {
+  try {
+    await axios.delete(`${API_URL}/trash/${id}`);
+    
+  } catch (error) {
+    console.error("Erreur lors de la suppression définitive :", error);
+  }
+};
