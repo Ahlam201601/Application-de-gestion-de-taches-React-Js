@@ -10,6 +10,13 @@ const Edit = () => {
     priority: 'moyenne',
     status: 'todo'
   });
+
+  const [errors, setErrors] = useState({
+    title: '',
+    description: '',
+    priority: '',
+    status: ''
+  });
   return (
     <div>Edit</div>
   )
