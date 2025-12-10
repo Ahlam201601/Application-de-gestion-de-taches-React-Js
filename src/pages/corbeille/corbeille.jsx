@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getTrash} from "../../../Api";
+import { getTrash, restoreTask } from "../../../Api";
 import "./Corbeille.css";
 
 export default function Corbeille() {
@@ -16,7 +16,15 @@ export default function Corbeille() {
     loadTrash();
   }, []);
 
-  
+  // Filter
+  const filteredTrash = trash.filter((t) => {
+    const matchText = t.title.toLowerCase().includes(search.toLowerCase());
+
+    const matchPriority =
+      priority === "Toutes" ? true : t.priority === priority.toLowerCase();
+
+    return matchText && matchPriority;
+  });
 
   return (
     <div className="corbeille-page">
@@ -39,7 +47,51 @@ export default function Corbeille() {
       </div>
 
 
-      
+      <div className="cards">
+        {filteredTrash.map((task) => (
+          <div className="card" key={task.id}>
+            <div className="card-header">
+              <h3>{task.title}</h3>
+
+              <span className={`badge ${task.priority}`}>
+                {task.priority.toUpperCase()}
+              </span>
+            </div>
+
+            <p className="desc">{task.description}</p>
+
+            <div className="status">
+              Statut :
+              <span className="state">
+                {task.status === "done"
+                  ? "Terminé"
+                  : task.status === "inprogress"
+                  ? "En cours"
+                  : "À faire"}
+              </span>
+            </div>
+
+            <div className="btns">
+              <button
+                className="restore"
+                onClick={async () => {
+                  await restoreTask(task);
+                  loadTrash();
+                }}
+              >
+                ♻ Restaurer
+              </button>
+
+              <button
+                className="delete"
+                
+              >
+                🗑 Supprimer définitivement
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
