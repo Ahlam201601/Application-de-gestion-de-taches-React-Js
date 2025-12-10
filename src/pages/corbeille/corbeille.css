@@ -1,0 +1,32 @@
+.corbeille-page {
+  padding: 40px;
+  text-align: center;
+  background: #0a1c3a;
+  min-height: 100vh;
+  color: white;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.controls {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.controls input,
+.controls select {
+  width: 45%;
+  padding: 14px;
+  background: #0d1f3f;
+  border: 1px solid #1b2a4e;
+  color: white;
+  border-radius: 12px;
+  outline: none;
+}
+
