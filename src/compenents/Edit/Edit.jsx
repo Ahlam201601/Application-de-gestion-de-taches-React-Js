@@ -3,7 +3,7 @@ import { updateTask } from '../../../Api'
 import toast from 'react-hot-toast'
 import './Edit.css'
 
-const Edit = () => {
+const Edit = (task) => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -20,6 +20,21 @@ const Edit = () => {
 
   const validPriorities = ['basse', 'moyenne', 'urgente'];
   const validStatuses = ['todo', 'inprogress', 'done'];
+
+  useEffect(()=> {
+    setFormData({
+      title: task.title || '',
+      description: task.description || '',
+      priority: task.priority || 'moyenne',
+      status: task.status || 'todo'
+    });
+    setErrors({
+      title: '',
+      description: '',
+      priority: '',
+      status: ''
+    });
+  }, [task]);
 
   return (
     <div>Edit</div>
