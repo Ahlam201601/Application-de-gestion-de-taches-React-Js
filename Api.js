@@ -73,3 +73,16 @@ export const updateTask = async (id, task) =>{
         console.error('Erreur lors de la mise à jour de la tâche:', error);
     }
 };
+// Supprimer une tâche (déplacer vers la corbeille)
+export const deleteTask = async (id) => {
+  try {
+    const task = await axios.get(`${API_URL}/tasks/${id}`);
+    await axios.post(`${API_URL}/trash`, task.data);
+    await axios.delete(`${API_URL}/tasks/${id}`);
+    return true;
+  } catch (error) {
+    console.error('Erreur lors de la suppression de la tâche:', error);
+    throw error;
+  }
+};
+
