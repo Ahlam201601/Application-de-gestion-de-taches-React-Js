@@ -35,15 +35,7 @@ export const getTrash = async () => {
   }
 };
 
-export const getTasks = async () => {
-  try {
-    const response = await axios.get(`${API_URL}/tasks`);
-    return response.data;
-  } catch (error) {
-    console.error('Erreur lors de la récupération des tâches:', error);
-    return [];
-  }
-};
+
 
 
 export const restoreTask = async (task) => {
