@@ -2,7 +2,18 @@ import { useDrop } from 'react-dnd';
 import { FaCircle } from 'react-icons/fa';
 import TaskCard from '../TaskCard/TaskCard';
 import './Done.css';
-const Done = () => {
+const Done = (onDrop) => {
+  const [{isOver}, drop] = useDrop({
+    accept: 'task',
+    drop: (item) =>{
+      if (item.status !== 'done') {
+        onDrop(item.id, 'done');
+      }
+    },
+    collect: (monitor) =>({
+      isOver: monitor.isOver(),
+    }),
+  });
   return (
     <div>Done</div>
   )
