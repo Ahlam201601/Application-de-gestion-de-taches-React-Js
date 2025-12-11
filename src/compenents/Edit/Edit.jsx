@@ -36,6 +36,45 @@ const Edit = (task) => {
     });
   }, [task]);
 
+  const validateField = (name, value) =>{
+    let error = '';
+
+    switch (name) {
+      case 'title':
+        if (!value || !value.trim()) {
+          error = 'Le titre est requis';
+        } else if (value.trim().length < 3) {
+          error = 'Le titre doit contenir au moins 3 caractères';
+        } else if (value.trim().length > 100) {
+          error = 'Le titre ne peut pas dépasser 100 caractères';
+        }
+        break;
+
+      case 'description':
+        if (value && value.length > 500) {
+          error = 'La description ne peut pas dépasser 500 caractères';
+        }
+        break;
+
+      case 'priority':
+        if (!validPriorities.includes(value)) {
+          error = 'Priorité invalide';
+        }
+        break;
+
+      case 'status':
+        if (!validStatuses.includes(value)) {
+          error = 'Statut invalide';
+        }
+        break;
+
+      default:
+        break;
+    }
+
+    return error;
+  };
+
   return (
     <div>Edit</div>
   )
