@@ -1,7 +1,7 @@
 import toast from 'react-hot-toast';
 import './Confirm.css';
 
-const Confirm = (message, onConfirm) => {
+export const confirmDelete = (message, onConfirm) => {
   const toastId = toast(
     (t) => (
       <div className="confirm-toast">
@@ -26,11 +26,19 @@ const Confirm = (message, onConfirm) => {
           </button>
         </div>
       </div>
-    )
-  )
-  return (
-    <div>Confirm</div>
-  )
-}
-
-export default Confirm
+    ),
+    {
+      duration: Infinity,
+      style: {
+        background: 'rgba(26, 26, 46, 0.95)',
+        color: '#ffffff',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        padding: '1.5rem',
+        borderRadius: '12px',
+        minWidth: '350px',
+        backdropFilter: 'blur(20px)',
+      },
+      position: 'top-center',
+    }
+  );
+};
