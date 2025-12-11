@@ -75,6 +75,19 @@ const Edit = (task) => {
     return error;
   };
 
+  const validateForm = () => {
+    const newErrors = {
+      title: validateField('title', formData.title),
+      description: validateField('description', formData.description),
+      priority: validateField('priority', formData.priority),
+      status: validateField('status', formData.status)
+    };
+
+    setErrors(newErrors);
+
+    return !Object.values(newErrors).some(error => error !== '');
+  };
+
   return (
     <div>Edit</div>
   )
