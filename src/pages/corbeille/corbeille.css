@@ -104,6 +104,7 @@
   padding: 10px;
   border: none;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .delete {
@@ -113,4 +114,5 @@
   padding: 10px;
   border: none;
   border-radius: 8px;
+  cursor: pointer;
 }
