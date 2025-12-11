@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getTrash, restoreTask, deleteTaskForever } from "../../../Api";
+import { getTrash, restoreTask, deleteTask } from "../../../Api";
 import "./Corbeille.css";
 
 export default function Corbeille() {
@@ -85,7 +85,7 @@ export default function Corbeille() {
               <button
                 className="delete"
                 onClick={async () => {
-                  await deleteTaskForever(task.id);
+                  await deleteTask(task.id);
                   loadTrash();
                 }}
               >
