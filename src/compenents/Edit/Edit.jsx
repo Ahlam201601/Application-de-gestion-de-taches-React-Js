@@ -3,7 +3,7 @@ import { updateTask } from '../../../Api'
 import toast from 'react-hot-toast'
 import './Edit.css'
 
-const Edit = (task) => {
+const Edit = (task, isAuthenticated, onTaskUpdated, onClose, isOpen) => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -96,6 +96,32 @@ const Edit = (task) => {
     setErrors({ ...errors, [name]: error });
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!isAuthenticated) {
+      toast.error('Vous devez être connecté pour modifier une tâche');
+      return;
+    }
+
+    if (!validateForm()) {
+    toast.error('Veuillez corriger les erreurs dans le formulaire');
+    return;
+  }
+
+  try {
+    await updateTask(task.id, {...task, ...formData});
+    toast.success('Tâche modifiée avec succès !');
+    onTaskUpdated();
+    onClose();
+  } catch (error) {
+    toast.error('Erreur lors de la modification de la tâche');
+  }
+  };
+
+  if(!isOpen || !task) return null;
+
+  
 
 
   return (
