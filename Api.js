@@ -67,3 +67,15 @@ export const updateTask = async (id, task) =>{
 };
 
 
+// Supprimer définitivement une tâche
+export const deletePermanently = async (id) => {
+  try {
+    await axios.delete(`${API_URL}/trash/${id}`);
+    window.location.reload();
+    return true;
+  } catch (error) {
+    console.error('Erreur lors de la suppression définitive:', error);
+    throw error;
+  }
+};
+

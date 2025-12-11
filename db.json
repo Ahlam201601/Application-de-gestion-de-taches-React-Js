@@ -16,23 +16,31 @@
       "priority": "moyenne",
       "status": "inprogress",
       "order": 0
+    },
+    {
+      "id": "3ae8",
+      "title": "hhh",
+      "description": "nkhm",
+      "priority": "urgente",
+      "status": "inprogress",
+      "order": 0
     }
   ],
   "trash": [
     {
       "id": "7202",
-      "title": "task1",
+      "title": "nnnn",
       "description": "rttyuiytr",
       "priority": "moyenne",
-      "status": "done",
+      "status": "inprogress",
       "order": 0
     },
     {
       "id": "13",
-      "title": "HHH",
+      "title": "trash1",
       "description": "rttyuiytr",
-      "priority": "urgente",
-      "status": "done",
+      "priority": "moyenne",
+      "status": "inprogress",
       "order": 0
     }
   ]
