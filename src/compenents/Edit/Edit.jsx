@@ -88,6 +88,16 @@ const Edit = (task) => {
     return !Object.values(newErrors).some(error => error !== '');
   };
 
+  const handleChange = (e) =>{
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+
+    const error = validateField(name, value);
+    setErrors({ ...errors, [name]: error });
+  };
+
+
+
   return (
     <div>Edit</div>
   )
