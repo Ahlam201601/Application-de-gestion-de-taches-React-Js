@@ -17,7 +17,18 @@ const Done = (onDrop, tasks) => {
 
   const sortedTasks = [...tasks].sort((a, b) => (a.order || 0) - (b.order || 0));
   return (
-    <div>Done</div>
+    <div 
+      ref={drop}
+      className={`done-column ${isOver ? 'drag-over' : ''}`}
+    >
+      <div className="column-header">
+        <h2>Done</h2>
+        <div className="task-count-badge">
+          <FaCircle className="count-icon" />
+          <span>{tasks.length}</span>
+        </div>
+      </div>
+    </div>
   )
 }
 
