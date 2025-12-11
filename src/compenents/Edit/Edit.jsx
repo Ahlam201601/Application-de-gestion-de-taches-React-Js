@@ -17,6 +17,10 @@ const Edit = () => {
     priority: '',
     status: ''
   });
+
+  const validPriorities = ['basse', 'moyenne', 'urgente'];
+  const validStatuses = ['todo', 'inprogress', 'done'];
+
   return (
     <div>Edit</div>
   )
