@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createTask } from '../../../Api';
 import toast from 'react-hot-toast';
 import './Add.css';
@@ -12,6 +12,14 @@ const Add = ({ isOpen, onClose, onTaskAdded, isAuthenticated }) => {
     status: 'todo',
     order: 0
   });
+  const [titleError, setTitleError] = useState('');
+
+  // Reset form when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setTitleError('');
+    }
+  }, [isOpen]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,9 +30,11 @@ const Add = ({ isOpen, onClose, onTaskAdded, isAuthenticated }) => {
     }
 
     if (!formData.title.trim()) {
-      toast.error('Le titre est requis !');
+      setTitleError('Le titre est requis !');
       return;
     }
+
+    setTitleError('');
 
     try {
       // L'ordre sera géré par le backend ou calculé côté client
@@ -63,10 +73,21 @@ const Add = ({ isOpen, onClose, onTaskAdded, isAuthenticated }) => {
             <input
               type="text"
               value={formData.title}
-              onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+              onChange={(e) => {
+                setFormData({ ...formData, title: e.target.value });
+                if (e.target.value.trim()) {
+                  setTitleError('');
+                }
+              }}
+              onBlur={(e) => {
+                if (!e.target.value.trim()) {
+                  setTitleError('Le titre est requis !');
+                }
+              }}
               placeholder="Task title..."
-              required
+              
             />
+            {titleError && <span className="error-message">{titleError}</span>}
           </div>
 
           <div className="form-group">
