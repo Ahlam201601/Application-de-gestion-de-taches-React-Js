@@ -1,6 +1,6 @@
 import { useDrop } from 'react-dnd';
 import { FaCircle } from 'react-icons/fa';
-import TaskCard from '../TaskCard/TaskCard';
+// import TaskCard from '../TaskCard/TaskCard';
 import './Done.css';
 const Done = (onDrop, tasks, onEdit, onDelete, onMove, isAuthenticated) => {
   const [{isOver}, drop] = useDrop({
@@ -15,7 +15,7 @@ const Done = (onDrop, tasks, onEdit, onDelete, onMove, isAuthenticated) => {
     }),
   });
 
-  const sortedTasks = [...tasks].sort((a, b) => (a.order || 0) - (b.order || 0));
+//   const sortedTasks = [...tasks].sort((a, b) => (a.order || 0) - (b.order || 0));
   return (
     <div 
       ref={drop}
@@ -25,10 +25,10 @@ const Done = (onDrop, tasks, onEdit, onDelete, onMove, isAuthenticated) => {
         <h2>Done</h2>
         <div className="task-count-badge">
           <FaCircle className="count-icon" />
-          <span>{tasks.length}</span>
+          {/* <span>{tasks.length}</span> */}
         </div>
       </div>
-      <div className='tasks-list'>
+      {/* <div className='tasks-list'>
         {sortedTasks.map((task, index) => (
           <TaskCard
             key={task.id}
@@ -41,7 +41,7 @@ const Done = (onDrop, tasks, onEdit, onDelete, onMove, isAuthenticated) => {
             isAuthenticated={isAuthenticated}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   )
 }
