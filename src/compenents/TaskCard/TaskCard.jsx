@@ -27,6 +27,32 @@ const TaskCard = (task, index, isAuthenticated, status) => {
       isOver: monitor.isOver(), 
     }),
   });
+
+  const getPriorityColor = (priority) => {
+    switch (priority) {
+      case 'urgente':
+        return '#ff4757';
+      case 'moyenne':
+        return '#ffa502';
+      case 'basse':
+        return '#26de81';
+      default:
+        return '#747d8c';
+    }
+  };
+
+  const getPriorityLabel = (priority) => {
+    switch (priority) {
+      case 'urgente':
+        return 'High';
+      case 'moyenne':
+        return 'Medium';
+      case 'basse':
+        return 'Low';
+      default:
+        return priority;
+    }
+  };
   return (
     <div>TaskCard</div>
   )
