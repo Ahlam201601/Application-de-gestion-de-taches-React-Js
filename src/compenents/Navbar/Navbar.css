@@ -1,0 +1,57 @@
+.navbar {
+  background: rgba(26, 26, 46, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.8rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  color: #fff;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: #e6e6e6;
+  text-decoration: none;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.95rem;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.logout-btn {
+  cursor: pointer;
+}
+
+.trash-count-badge {
+  margin-left: 0.35rem;
+  background: #ff4757;
+  color: white;
+  padding: 0.1rem 0.45rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+}
+
+
