@@ -2,7 +2,7 @@ import { useDrop } from 'react-dnd';
 import { FaCircle } from 'react-icons/fa';
 // import TaskCard from '../TaskCard/TaskCard';
 import './Done.css';
-const Done = (onDrop, tasks, onEdit, onDelete, onMove, isAuthenticated) => {
+const Done = ({onDrop, tasks, onEdit, onDelete, onMove, isAuthenticated, onMoveWithinColumn}) => {
   const [{isOver}, drop] = useDrop({
     accept: 'task',
     drop: (item) =>{
@@ -15,7 +15,7 @@ const Done = (onDrop, tasks, onEdit, onDelete, onMove, isAuthenticated) => {
     }),
   });
 
-//   const sortedTasks = [...tasks].sort((a, b) => (a.order || 0) - (b.order || 0));
+    const sortedTasks = [...tasks].sort((a, b) => (a.order || 0) - (b.order || 0));
   return (
     <div 
       ref={drop}
@@ -37,7 +37,7 @@ const Done = (onDrop, tasks, onEdit, onDelete, onMove, isAuthenticated) => {
             status="done"
             onEdit={onEdit}
             onDelete={onDelete}
-            onMove={onMove}
+            onMove={onMoveWithinColumn}
             isAuthenticated={isAuthenticated}
           />
         ))}
