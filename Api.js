@@ -35,15 +35,7 @@ export const getTrash = async () => {
   }
 };
 
-export const getTasks = async () => {
-  try {
-    const response = await axios.get(`${API_URL}/tasks`);
-    return response.data;
-  } catch (error) {
-    console.error('Erreur lors de la récupération des tâches:', error);
-    return [];
-  }
-};
+
 
 
 export const restoreTask = async (task) => {
@@ -73,16 +65,15 @@ export const updateTask = async (id, task) =>{
         console.error('Erreur lors de la mise à jour de la tâche:', error);
     }
 };
-// Supprimer une tâche (déplacer vers la corbeille)
-export const deleteTask = async (id) => {
+
+
+// Supprimer définitivement une tâche
+export const deletePermanently = async (id) => {
   try {
-    const task = await axios.get(`${API_URL}/tasks/${id}`);
-    await axios.post(`${API_URL}/trash`, task.data);
-    await axios.delete(`${API_URL}/tasks/${id}`);
-    return true;
+    await axios.delete(`${API_URL}/trash/${id}`);
+    window.location.reload();
   } catch (error) {
-    console.error('Erreur lors de la suppression de la tâche:', error);
-    throw error;
+    console.error('Erreur lors de la suppression définitive:', error);
   }
 };
 
