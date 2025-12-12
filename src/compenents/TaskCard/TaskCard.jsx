@@ -14,6 +14,19 @@ const TaskCard = (task, index, isAuthenticated, status) => {
       isDragging: monitor.isDragging(), 
     }),
   });
+
+  const [{ isOver }, drop] = useDrop({
+    accept: 'task',
+    canDrop: () => isAuthenticated,
+    hover: (draggedItem) => {
+      if (isAuthenticated && draggedItem.id !== task.id && draggedItem.status === status) {
+        onMove(draggedItem.id, task.id, status);
+      }
+    },
+    collect: (monitor) => ({
+      isOver: monitor.isOver(), 
+    }),
+  });
   return (
     <div>TaskCard</div>
   )
