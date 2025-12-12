@@ -50,10 +50,13 @@ export const restoreTask = async (task) => {
 
 export const deleteTask = async (id) => {
   try {
-    await axios.delete(`${API_URL}/trash/${id}`);
-    
+    const task = await axios.get(`${API_URL}/tasks/${id}`);
+    await axios.post(`${API_URL}/trash`, task.data);
+    await axios.delete(`${API_URL}/tasks/${id}`);
+    return true;
   } catch (error) {
-    console.error("Erreur lors de la suppression définitive :", error);
+    console.error('Erreur lors de la suppression de la tâche:', error);
+    throw error;
   }
 };
 

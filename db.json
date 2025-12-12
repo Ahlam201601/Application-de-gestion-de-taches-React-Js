@@ -24,9 +24,7 @@
       "priority": "urgente",
       "status": "inprogress",
       "order": 0
-    }
-  ],
-  "trash": [
+    },
     {
       "id": "7202",
       "title": "nnnn",
@@ -34,13 +32,15 @@
       "priority": "moyenne",
       "status": "inprogress",
       "order": 0
-    },
+    }
+  ],
+  "trash": [
     {
-      "id": "13",
-      "title": "trash1",
-      "description": "rttyuiytr",
+      "id": "9c37",
+      "title": "fcvgvgvgvgvgv",
+      "description": "gtytgtyggytgtyg",
       "priority": "moyenne",
-      "status": "inprogress",
+      "status": "done",
       "order": 0
     }
   ]
