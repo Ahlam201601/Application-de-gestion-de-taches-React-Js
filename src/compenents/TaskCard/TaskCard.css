@@ -1,0 +1,110 @@
+.task-card {
+  background: rgba(30, 30, 46, 0.8);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  cursor: move;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.task-card.disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.task-card.dragging {
+  opacity: 0.5;
+  transform: rotate(2deg) scale(0.95);
+}
+
+.task-card.drag-hover {
+  border: 2px dashed rgba(102, 126, 234, 0.6);
+  margin-bottom: 1.5rem;
+}
+
+.task-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.task-header h3 {
+  color: #ffffff;
+  font-size: 1rem;
+  margin: 0;
+  flex: 1;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  padding: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.edit-btn {
+  color: rgba(102, 126, 234, 0.9);
+}
+
+.delete-btn {
+  color: rgba(255, 71, 87, 0.9);
+}
+
+.task-description {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+  padding: 0.6rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border-left: 3px solid rgba(102, 126, 234, 0.5);
+}
+
+.priority-container {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.priority-badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+}
+
+.status-btn {
+  background: rgba(102, 126, 234, 0.15);
+  color: #ffffff;
+  border: 1px solid rgba(102, 126, 234, 0.4);
+  border-radius: 8px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.status-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
