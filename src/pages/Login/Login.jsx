@@ -6,10 +6,30 @@ import './Login.css';
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    let hasError = false;
+    
+    if (!email.trim()) {
+      setEmailError('L\'email est requis !');
+      hasError = true;
+    } else {
+      setEmailError('');
+    }
+    
+    if (!password.trim()) {
+      setPasswordError('Le mot de passe est requis !');
+      hasError = true;
+    } else {
+      setPasswordError('');
+    }
+    
+    if (hasError) return;
     
     if (onLogin(email, password)) {
       toast.success('Connexion réussie !');
@@ -33,10 +53,20 @@ const Login = ({ onLogin }) => {
             <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                if (e.target.value.trim()) {
+                  setEmailError('');
+                }
+              }}
+              onBlur={(e) => {
+                if (!e.target.value.trim()) {
+                  setEmailError('L\'email est requis !');
+                }
+              }}
               placeholder="tasks@gmail.com"
-              required
             />
+            {emailError && <span className="error-message">{emailError}</span>}
           </div>
 
           <div className="form-group">
@@ -44,10 +74,20 @@ const Login = ({ onLogin }) => {
             <input
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                if (e.target.value.trim()) {
+                  setPasswordError('');
+                }
+              }}
+              onBlur={(e) => {
+                if (!e.target.value.trim()) {
+                  setPasswordError('Le mot de passe est requis !');
+                }
+              }}
               placeholder="••••••••"
-              required
             />
+            {passwordError && <span className="error-message">{passwordError}</span>}
           </div>
 
           <button type="submit" className="login-btn">
