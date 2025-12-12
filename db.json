@@ -5,8 +5,8 @@
       "title": "task1",
       "description": "rttyuiytr",
       "priority": "urgente",
-      "status": "todo",
-      "order": 0,
+      "status": "inprogress",
+      "order": 1,
       "deleted": false
     },
     {
@@ -22,8 +22,8 @@
       "title": "jfjffff",
       "description": "fjfnfjfnnf",
       "priority": "moyenne",
-      "status": "inprogress",
-      "order": 0
+      "status": "done",
+      "order": 3
     },
     {
       "id": "10",
@@ -32,16 +32,6 @@
       "priority": "moyenne",
       "status": "todo",
       "order": 1
-    }
-  ],
-  "trash": [
-    {
-      "id": "9c37",
-      "title": "fcvgvgvgvgvgv",
-      "description": "gtytgtyggytgtyg",
-      "priority": "moyenne",
-      "status": "done",
-      "order": 0
     },
     {
       "id": "7202",
@@ -52,12 +42,29 @@
       "order": 2
     },
     {
+      "id": "6842",
+      "title": "ahlam",
+      "description": "ahj nfgb jf bj rbj dfjbn jgnejn",
+      "priority": "moyenne",
+      "status": "todo",
+      "order": 3
+    },
+    {
       "id": "1001",
       "title": "lllll",
       "description": "kkkk",
       "priority": "basse",
-      "status": "review",
+      "status": "todo",
+      "order": 0
+    },
+    {
+      "id": "9c37",
+      "title": "fcvgvgvgvgvgv",
+      "description": "gtytgtyggytgtyg",
+      "priority": "moyenne",
+      "status": "todo",
       "order": 0
     }
-  ]
+  ],
+  "trash": []
 }
