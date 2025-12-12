@@ -1,47 +1,52 @@
 import { useEffect, useState } from "react";
-import { getTrash, restoreTask, deletePermanently } from "../../../Api";
+import { Navigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { getTrash, restoreTask, deleteTaskPermanent } from "../../../Api";
 import { confirmDelete } from "../../compenents/Confirm/Confirm";
 import Navbar from "../../compenents/Navbar/Navbar";
-import "./Corbeille.css";
+import "./corbeille.css";
 
 export default function Corbeille() {
   const [trash, setTrash] = useState([]);
   const [search, setSearch] = useState("");
-  const [trashCount, setTrashCount] = useState(0);
   const [priority, setPriority] = useState("Toutes");
-  const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
+  const [trashCount, setTrashCount] = useState(0);
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    () => localStorage.getItem("isAuthenticated") === "true"
+  );
 
   const loadTrash = async () => {
-    const data = await getTrash();
-    setTrash(data);
+    try {
+      const data = await getTrash();
+      setTrash(data || []);
+      setTrashCount((data || []).length);
+    } catch (error) {
+      console.error("Erreur lors du chargement de la corbeille", error);
+    }
   };
 
   useEffect(() => {
     loadTrash();
   }, []);
 
-  useEffect(() => {
-    setTrashCount(trash.length);
-  }, [trash, search, priority]);
-
   const updateTrashCount = async () => {
     try {
       const data = await getTrash();
-      setTrashCount(data.length);
+      setTrashCount((data || []).length);
     } catch (error) {
       console.error("Erreur compteur corbeille", error);
     }
   };
 
-  const handleDeletePermanently = async (id) => {
+  const handleDeletePermanently = (id) => {
     confirmDelete(
       "🗑️ ⚠️ ATTENTION ⚠️\n\nÊtes-vous sûr de vouloir supprimer définitivement cette tâche ?\n\nCette action est IRRÉVERSIBLE et la tâche ne pourra pas être récupérée.",
       async () => {
         try {
-          await deletePermanently(id);
+          await deleteTaskPermanent(id);
           toast.success("Tâche supprimée définitivement");
-          loadTrash();
-          updateTrashCount();
+          await loadTrash();
+          await updateTrashCount();
         } catch (error) {
           toast.error("Erreur lors de la suppression définitive");
         }
@@ -53,14 +58,13 @@ export default function Corbeille() {
     return <Navigate to="/login" replace />;
   }
 
-  // Filter
   const filteredTrash = trash.filter((t) => {
-    const matchText = t.title.toLowerCase().includes(search.toLowerCase());
-
-    const matchPriority =
-      priority === "Toutes" ? true : t.priority === priority.toLowerCase();
-
-    return matchText && matchPriority;
+    const matchesSearch = `${t.title} ${t.description}`
+      .toLowerCase()
+      .includes(search.toLowerCase());
+    const matchesPriority =
+      priority === "Toutes" || t.priority === priority;
+    return matchesSearch && matchesPriority;
   });
 
   return (
@@ -70,6 +74,7 @@ export default function Corbeille() {
         trashCount={trashCount}
         onLogout={() => {
           localStorage.removeItem("isAuthenticated");
+          setIsAuthenticated(false);
           window.location.href = "/login";
         }}
       />
@@ -123,8 +128,14 @@ export default function Corbeille() {
                 <button
                   className="restore"
                   onClick={async () => {
-                    await restoreTask(task);
-                    loadTrash();
+                    try {
+                      await restoreTask(task);
+                      await loadTrash();
+                      await updateTrashCount();
+                      toast.success("Tâche restaurée");
+                    } catch (e) {
+                      toast.error("Erreur lors de la restauration");
+                    }
                   }}
                 >
                   ♻ Restaurer
