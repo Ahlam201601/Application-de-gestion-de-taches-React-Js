@@ -6,6 +6,7 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .review-column.drag-over {
   background: rgba(26, 26, 38, 0.8);
   border-color: rgba(52, 152, 219, 0.5); /* blue border when dragging */
