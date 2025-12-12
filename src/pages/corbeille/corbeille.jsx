@@ -38,6 +38,17 @@ export default function Corbeille() {
     }
   };
 
+   const handleRestore = async (id) => {
+    try {
+      await restoreTask(id);
+      toast.success('Tâche restaurée avec succès !');
+      loadTrash();
+      updateTrashCount();
+    } catch (error) {
+      toast.error('Erreur lors de la restauration');
+    }
+  };
+
   const handleDeletePermanently = (id) => {
     confirmDelete(
       "🗑️ ⚠️ ATTENTION ⚠️\n\nÊtes-vous sûr de vouloir supprimer définitivement cette tâche ?\n\nCette action est IRRÉVERSIBLE et la tâche ne pourra pas être récupérée.",
@@ -66,6 +77,19 @@ export default function Corbeille() {
       priority === "Toutes" || t.priority === priority;
     return matchesSearch && matchesPriority;
   });
+
+  const getPriorityColor = (priority) => {
+    switch (priority) {
+      case "urgente":
+        return "#ff4757";
+      case "moyenne":
+        return "#ffa502";
+      case "basse":
+        return "#26de81";
+      default:
+        return "#747d8c";
+    }
+  };
 
   return (
     <>
@@ -106,7 +130,10 @@ export default function Corbeille() {
               <div className="card-header">
                 <h3>{task.title}</h3>
 
-                <span className={`badge ${task.priority}`}>
+                <span
+                  className="priority-badge"
+                  style={{ backgroundColor: getPriorityColor(task.priority) }}
+                >
                   {task.priority.toUpperCase()}
                 </span>
               </div>
@@ -120,7 +147,9 @@ export default function Corbeille() {
                     ? "Terminé"
                     : task.status === "inprogress"
                     ? "En cours"
-                    : "À faire"}
+                    : task.status === "review"
+                    ? "Review"
+                    : "A faire"}
                 </span>
               </div>
 
@@ -129,10 +158,9 @@ export default function Corbeille() {
                   className="restore"
                   onClick={async () => {
                     try {
-                      await restoreTask(task);
+                      await handleRestore(task.id);
                       await loadTrash();
                       await updateTrashCount();
-                      toast.success("Tâche restaurée");
                     } catch (e) {
                       toast.error("Erreur lors de la restauration");
                     }
