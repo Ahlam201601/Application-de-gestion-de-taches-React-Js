@@ -10,14 +10,6 @@
       "deleted": false
     },
     {
-      "id": "0c10",
-      "title": "jfjffff",
-      "description": "fjfnfjfnnfggggggggggggggggggggggggg\njcjhjnezhcbjzechjn\nzejnchezbcj znhebjeh",
-      "priority": "moyenne",
-      "status": "done",
-      "order": 3
-    },
-    {
       "id": "10",
       "title": "HHHH",
       "description": "rttyuiytr",
@@ -26,43 +18,37 @@
       "order": 1
     },
     {
-      "id": "7202",
-      "title": "nnnn",
-      "description": "rttyuiytr",
-      "priority": "moyenne",
-      "status": "done",
-      "order": 2
-    },
-    {
-      "id": "6842",
-      "title": "ahlam",
-      "description": "ahj nfgb jf bj rbj dfjbn jgnejn",
-      "priority": "moyenne",
-      "status": "todo",
-      "order": 3
-    },
-    {
-      "id": "1001",
-      "title": "lllll",
-      "description": "kkkk",
-      "priority": "basse",
-      "status": "todo",
-      "order": 0
-    },
-    {
-      "id": "9c37",
-      "title": "fcvgvgvgvgvgv",
-      "description": "gtytgtyggytgtyg",
-      "priority": "moyenne",
-      "status": "todo",
-      "order": 0
-    },
-    {
       "id": "3ae8",
       "title": "hhh",
       "description": "nkhm",
       "priority": "urgente",
-      "status": "review",
+      "status": "inprogress",
+      "order": 0
+    },
+    {
+      "id": "b169",
+      "title": "ttrh",
+      "description": "yhtrhr",
+      "priority": "basse",
+      "status": "done",
+      "order": 0
+    }
+  ],
+  "trash": [
+    {
+      "id": "7202",
+      "title": "nnnn",
+      "description": "rttyuiytrbuiiiiiiiii",
+      "priority": "moyenne",
+      "status": "inprogress",
+      "order": 0
+    },
+    {
+      "id": "13",
+      "title": "trash1",
+      "description": "rttyuiytr",
+      "priority": "urgente",
+      "status": "inprogress",
       "order": 0
     }
   ],
