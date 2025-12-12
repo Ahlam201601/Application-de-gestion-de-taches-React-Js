@@ -1,9 +1,10 @@
 import React from 'react';
 import { useDrop } from 'react-dnd';
 import { FaCircle } from 'react-icons/fa';
+import TaskCard from '../TaskCard/TaskCard';
 import './ToDo.css';
 
-const ToDo = ({ tasks, onDrop}) => {
+const ToDo = ({ tasks, onEdit, onDelete, onDrop, onMoveWithinColumn, isAuthenticated }) => {
   const [{ isOver }, drop] = useDrop({
     accept: 'task',
     drop: (item) => {
@@ -16,7 +17,7 @@ const ToDo = ({ tasks, onDrop}) => {
     }),
   });
 
-
+  const sortedTasks = [...tasks].sort((a, b) => (a.order || 0) - (b.order || 0));
 
   return (
     <div ref={drop} className={`todo-column ${isOver ? 'drag-over' : ''}`}>
@@ -27,7 +28,20 @@ const ToDo = ({ tasks, onDrop}) => {
           <span>{tasks.length}</span>
         </div>
       </div>
-      
+      <div className="tasks-list">
+        {sortedTasks.map((task, index) => (
+          <TaskCard
+            key={task.id}
+            task={task}
+            index={index}
+            status="todo"
+            onEdit={onEdit}
+            onDelete={onDelete}
+            onMove={onMoveWithinColumn}
+            isAuthenticated={isAuthenticated}
+          />
+        ))}
+      </div>
     </div>
   );
 };
