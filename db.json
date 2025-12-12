@@ -24,9 +24,7 @@
       "priority": "urgente",
       "status": "inprogress",
       "order": 0
-    }
-  ],
-  "trash": [
+    },
     {
       "id": "7202",
       "title": "nnnn",
@@ -36,11 +34,37 @@
       "order": 0
     },
     {
-      "id": "12",
-      "title": "trash1",
-      "description": "rttyuiytr",
+      "id": "351d",
+      "title": "tzahavah",
+      "description": "auzjnd zd",
       "priority": "moyenne",
-      "status": "inprogress",
+      "status": "review",
+      "order": 0
+    },
+    {
+      "id": "0c10",
+      "title": "jfjffff",
+      "description": "fjfnfjfnnf",
+      "priority": "moyenne",
+      "status": "todo",
+      "order": 0
+    }
+  ],
+  "trash": [
+    {
+      "id": "9c37",
+      "title": "fcvgvgvgvgvgv",
+      "description": "gtytgtyggytgtyg",
+      "priority": "moyenne",
+      "status": "done",
+      "order": 0
+    },
+    {
+      "id": "a379",
+      "title": "FH",
+      "description": "FTDT",
+      "priority": "moyenne",
+      "status": "todo",
       "order": 0
     }
   ]

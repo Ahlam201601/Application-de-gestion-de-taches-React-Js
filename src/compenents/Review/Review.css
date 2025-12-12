@@ -1,4 +1,4 @@
-.todo-column {
+.review-column {
   background: rgba(26, 26, 38, 0.6);
   border-radius: 16px;
   padding: 1.5rem;
@@ -7,9 +7,9 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.todo-column.drag-over {
+.review-column.drag-over {
   background: rgba(26, 26, 38, 0.8);
-  border-color: rgba(102, 126, 234, 0.5);
+  border-color: rgba(52, 152, 219, 0.5); /* blue border when dragging */
 }
 
 .column-header {
@@ -33,7 +33,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(102, 126, 234, 0.2);
+  background: rgba(52, 152, 219, 0.2);
   padding: 0.4rem 0.8rem;
   border-radius: 20px;
   color: #ffffff;
@@ -41,7 +41,7 @@
 
 .count-icon {
   font-size: 0.6rem;
-  color: #667eea;
+  color: #3498db;
 }
 
 .task-count-badge span {
@@ -55,4 +55,3 @@
   gap: 0.5rem;
   min-height: 100px;
 }
-

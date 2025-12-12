@@ -100,6 +100,7 @@ const Add = ({ isOpen, onClose, onTaskAdded, isAuthenticated }) => {
               <option value="todo">À faire</option>
               <option value="inprogress">En cours</option>
               <option value="done">Terminé</option>
+              <option value="review">Review</option>
             </select>
           </div>
 
@@ -116,5 +117,4 @@ const Add = ({ isOpen, onClose, onTaskAdded, isAuthenticated }) => {
     </div>
   );
 };
-
 export default Add;
