@@ -15,8 +15,6 @@ const Review = ({ tasks, onEdit, onDelete, onDrop, onMoveWithinColumn, isAuthent
       isOver: monitor.isOver(),
     }),
   });
-
-  
   const sortedTasks = [...tasks].sort((a, b) => (a.order || 0) - (b.order || 0));
 
   return (
@@ -31,6 +29,7 @@ const Review = ({ tasks, onEdit, onDelete, onDrop, onMoveWithinColumn, isAuthent
 
       <div className="tasks-list">
         {sortedTasks.map((task, index) => (
+          
           <TaskCard
             key={task.id}
             task={task}
