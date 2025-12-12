@@ -24,9 +24,7 @@
       "priority": "urgente",
       "status": "inprogress",
       "order": 0
-    }
-  ],
-  "trash": [
+    },
     {
       "id": "7202",
       "title": "nnnn",
@@ -34,13 +32,23 @@
       "priority": "moyenne",
       "status": "inprogress",
       "order": 0
+    }
+  ],
+  "trash": [
+    {
+      "id": "9c37",
+      "title": "fcvgvgvgvgvgv",
+      "description": "gtytgtyggytgtyg",
+      "priority": "moyenne",
+      "status": "done",
+      "order": 0
     },
     {
-      "id": "13",
-      "title": "trash1",
-      "description": "rttyuiytr",
+      "id": "a379",
+      "title": "FH",
+      "description": "FTDT",
       "priority": "moyenne",
-      "status": "inprogress",
+      "status": "todo",
       "order": 0
     }
   ]
