@@ -5,6 +5,11 @@
   min-height: 500px;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .done-column.drag-over {
@@ -54,5 +59,8 @@
   flex-direction: column;
   gap: 0.5rem;
   min-height: 100px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 

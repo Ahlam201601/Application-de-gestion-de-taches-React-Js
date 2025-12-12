@@ -6,6 +6,10 @@
   cursor: move;
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .task-card.disabled {
@@ -37,6 +41,12 @@
   flex: 1;
   line-height: 1.4;
   font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 
 .icon-btn {
@@ -68,6 +78,19 @@
   background: rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   border-left: 3px solid rgba(102, 126, 234, 0.5);
+  max-height: 100px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .priority-container {
