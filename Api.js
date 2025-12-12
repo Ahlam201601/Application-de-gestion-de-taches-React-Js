@@ -35,12 +35,14 @@ export const getTrash = async () => {
 };
 
 // Restaurer une tâche depuis la corbeille
-export const restoreTask = async (task) => {
+export const restoreTask = async (id) => {
   try {
-    await axios.post(`${API_URL}/tasks`, task);
-    await axios.delete(`${API_URL}/trash/${task.id}`);
+    const task = await axios.get(`${API_URL}/trash/${id}`);
+    await axios.post(`${API_URL}/tasks`, { ...task.data, status: 'todo' });
+    await axios.delete(`${API_URL}/trash/${id}`);
+    return true;
   } catch (error) {
-    console.error('Erreur lors de la restauration :', error);
+    console.error('Erreur lors de la restauration de la tâche:', error);
     throw error;
   }
 };
