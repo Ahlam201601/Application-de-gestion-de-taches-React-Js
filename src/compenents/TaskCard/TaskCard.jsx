@@ -4,7 +4,16 @@ import './TaskCard.css';
 
 import React from 'react'
 
-const TaskCard = () => {
+const TaskCard = (task, index, isAuthenticated, status) => {
+
+      const [{ isDragging }, drag] = useDrag({
+    type: 'task', 
+    item: { id: task.id, status: task.status, index }, 
+    canDrag: () => isAuthenticated, 
+    collect: (monitor) => ({
+      isDragging: monitor.isDragging(), 
+    }),
+  });
   return (
     <div>TaskCard</div>
   )
