@@ -120,7 +120,9 @@ export default function Corbeille() {
                     ? "Terminé"
                     : task.status === "inprogress"
                     ? "En cours"
-                    : "À faire"}
+                    : task.status === "review"
+                    ? "Review"
+                    : "A faire"}
                 </span>
               </div>
 
