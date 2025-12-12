@@ -1,0 +1,57 @@
+.review-column {
+  background: rgba(26, 26, 38, 0.6);
+  border-radius: 16px;
+  padding: 1.5rem;
+  min-height: 500px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.review-column.drag-over {
+  background: rgba(26, 26, 38, 0.8);
+  border-color: rgba(52, 152, 219, 0.5); /* blue border when dragging */
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.column-header h2 {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.task-count-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(52, 152, 219, 0.2);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  color: #ffffff;
+}
+
+.count-icon {
+  font-size: 0.6rem;
+  color: #3498db;
+}
+
+.task-count-badge span {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 100px;
+}
