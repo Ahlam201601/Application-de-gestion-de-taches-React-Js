@@ -3,7 +3,7 @@ import { updateTask } from '../../../Api'
 import toast from 'react-hot-toast'
 import './Edit.css'
 
-const Edit = (task, isAuthenticated, onTaskUpdated, onClose, isOpen) => {
+const Edit = ({task, isAuthenticated, onTaskUpdated, onClose, isOpen}) => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -21,19 +21,21 @@ const Edit = (task, isAuthenticated, onTaskUpdated, onClose, isOpen) => {
   const validPriorities = ['basse', 'moyenne', 'urgente'];
   const validStatuses = ['todo', 'inprogress', 'done'];
 
-  useEffect(()=> {
-    setFormData({
-      title: task.title || '',
-      description: task.description || '',
-      priority: task.priority || 'moyenne',
-      status: task.status || 'todo'
-    });
-    setErrors({
-      title: '',
-      description: '',
-      priority: '',
-      status: ''
-    });
+  useEffect(() => {
+    if (task) {
+      setFormData({
+        title: task.title || '',
+        description: task.description || '',
+        priority: task.priority || 'moyenne',
+        status: task.status || 'todo'
+      });
+      setErrors({
+        title: '',
+        description: '',
+        priority: '',
+        status: ''
+      });
+    }
   }, [task]);
 
   const validateField = (name, value) =>{
