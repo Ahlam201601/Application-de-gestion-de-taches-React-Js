@@ -3,7 +3,7 @@ import { useDrop } from 'react-dnd';
 import { FaCircle } from 'react-icons/fa';
 import './ToDo.css';
 
-const ToDo = ({ tasks, onEdit, onDrop}) => {
+const ToDo = ({ tasks, onDrop}) => {
   const [{ isOver }, drop] = useDrop({
     accept: 'task',
     drop: (item) => {
@@ -16,7 +16,7 @@ const ToDo = ({ tasks, onEdit, onDrop}) => {
     }),
   });
 
-  
+
 
   return (
     <div ref={drop} className={`todo-column ${isOver ? 'drag-over' : ''}`}>
