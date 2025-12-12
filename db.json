@@ -22,8 +22,23 @@
       "title": "HHHH",
       "description": "rttyuiytr",
       "priority": "moyenne",
+<<<<<<< HEAD
+      "status": "inprogress",
+      "order": 1
+    }
+  ],
+  "trash": [
+    {
+      "id": "7202",
+      "title": "nnnn",
+      "description": "rttyuiytr",
+      "priority": "moyenne",
+      "status": "inprogress",
+      "order": 0
+=======
       "status": "todo",
       "order": 1
+>>>>>>> a9fe543fc67ff8038851ee39c5949a4525680334
     },
     {
       "id": "7202",
