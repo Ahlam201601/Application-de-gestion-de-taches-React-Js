@@ -8,9 +8,9 @@ import Doing from '../../compenents/Doing/Doing';
 import Done from '../../compenents/Done/Done';
 import Review from '../../compenents/Review/Review';
 import toast from 'react-hot-toast';
-import Navbar from '../../compenents/Navbar/Navbar';
-//import { confirmDelete } from '../../compenents/Confirm/Confirm';
-import Login from '../Login/Login';
+ import Navbar from '../../compenents/Navbar/Navbar';
+import { confirmDelete } from '../../compenents/Confirm/Confirm';
+ import Login from '../Login/Login';
 import './Home.css';
 
 const Home = () => {
