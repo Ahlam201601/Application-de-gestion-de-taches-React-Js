@@ -19,7 +19,7 @@ const Edit = ({task, isAuthenticated, onTaskUpdated, onClose, isOpen}) => {
   });
 
   const validPriorities = ['basse', 'moyenne', 'urgente'];
-  const validStatuses = ['todo', 'inprogress', 'done'];
+  const validStatuses = ['todo', 'inprogress', 'done', 'review'];
 
   useEffect(() => {
     if (task) {
@@ -191,6 +191,7 @@ const Edit = ({task, isAuthenticated, onTaskUpdated, onClose, isOpen}) => {
               <option value="todo">À faire</option>
               <option value="inprogress">En cours</option>
               <option value="done">Terminé</option>
+              <option value="review">Review</option>
             </select>
             {errors.status && <span className="error-message">{errors.status}</span>}
           </div>
