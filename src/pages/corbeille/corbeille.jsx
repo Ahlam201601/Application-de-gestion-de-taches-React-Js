@@ -67,6 +67,19 @@ export default function Corbeille() {
     return matchesSearch && matchesPriority;
   });
 
+  const getPriorityColor = (priority) => {
+    switch (priority) {
+      case "urgente":
+        return "#ff4757";
+      case "moyenne":
+        return "#ffa502";
+      case "basse":
+        return "#26de81";
+      default:
+        return "#747d8c";
+    }
+  };
+
   return (
     <>
       <Navbar
@@ -106,7 +119,10 @@ export default function Corbeille() {
               <div className="card-header">
                 <h3>{task.title}</h3>
 
-                <span className={`badge ${task.priority}`}>
+                <span
+                  className="priority-badge"
+                  style={{ backgroundColor: getPriorityColor(task.priority) }}
+                >
                   {task.priority.toUpperCase()}
                 </span>
               </div>
