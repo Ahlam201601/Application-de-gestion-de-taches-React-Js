@@ -6,10 +6,11 @@ import Edit from '../../compenents/Edit/Edit';
 import ToDo from '../../compenents/ToDo/ToDo';
 import Doing from '../../compenents/Doing/Doing';
 import Done from '../../compenents/Done/Done';
+import Review from '../../compenents/Review/Review';
 import toast from 'react-hot-toast';
-// import Navbar from '../../compenents/Navbar/Navbar';
-// import { confirmDelete } from '../../compenents/Confirm/Confirm';
-// import Login from '../Login/Login';
+import Navbar from '../../compenents/Navbar/Navbar';
+//import { confirmDelete } from '../../compenents/Confirm/Confirm';
+import Login from '../Login/Login';
 import './Home.css';
 
 const Home = () => {
@@ -214,6 +215,14 @@ const Home = () => {
             />
             <Done
               tasks={tasks.filter((t) => t.status === 'done')}
+              onEdit={handleEditClick}
+              onDelete={handleDelete}
+              onDrop={handleDrop}
+              onMoveWithinColumn={handleMoveWithinColumn}
+              isAuthenticated={isAuthenticated}
+            />
+            <Review
+              tasks={tasks.filter((t) => t.status === 'review')}
               onEdit={handleEditClick}
               onDelete={handleDelete}
               onDrop={handleDrop}
