@@ -3,7 +3,7 @@ import { updateTask } from '../../../Api'
 import toast from 'react-hot-toast'
 import './Edit.css'
 
-const Edit = (task, isAuthenticated, onTaskUpdated, onClose, isOpen) => {
+const Edit = ({task, isAuthenticated, onTaskUpdated, onClose, isOpen}) => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -19,21 +19,23 @@ const Edit = (task, isAuthenticated, onTaskUpdated, onClose, isOpen) => {
   });
 
   const validPriorities = ['basse', 'moyenne', 'urgente'];
-  const validStatuses = ['todo', 'inprogress', 'done'];
+  const validStatuses = ['todo', 'inprogress', 'done', 'review'];
 
-  useEffect(()=> {
-    setFormData({
-      title: task.title || '',
-      description: task.description || '',
-      priority: task.priority || 'moyenne',
-      status: task.status || 'todo'
-    });
-    setErrors({
-      title: '',
-      description: '',
-      priority: '',
-      status: ''
-    });
+  useEffect(() => {
+    if (task) {
+      setFormData({
+        title: task.title || '',
+        description: task.description || '',
+        priority: task.priority || 'moyenne',
+        status: task.status || 'todo'
+      });
+      setErrors({
+        title: '',
+        description: '',
+        priority: '',
+        status: ''
+      });
+    }
   }, [task]);
 
   const validateField = (name, value) =>{
@@ -189,6 +191,7 @@ const Edit = (task, isAuthenticated, onTaskUpdated, onClose, isOpen) => {
               <option value="todo">À faire</option>
               <option value="inprogress">En cours</option>
               <option value="done">Terminé</option>
+              <option value="review">Review</option>
             </select>
             {errors.status && <span className="error-message">{errors.status}</span>}
           </div>

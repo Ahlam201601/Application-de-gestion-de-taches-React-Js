@@ -45,6 +45,8 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   margin-top: 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
