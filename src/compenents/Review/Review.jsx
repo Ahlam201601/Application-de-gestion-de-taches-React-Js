@@ -16,6 +16,7 @@ const Review = ({ tasks, onEdit, onDelete, onDrop, onMoveWithinColumn, isAuthent
     }),
   });
 
+  
   const sortedTasks = [...tasks].sort((a, b) => (a.order || 0) - (b.order || 0));
 
   return (
