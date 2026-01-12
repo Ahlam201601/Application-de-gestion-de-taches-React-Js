@@ -74,7 +74,7 @@ export default function Corbeille() {
       .toLowerCase()
       .includes(search.toLowerCase());
     const matchesPriority =
-      priority === "Toutes" || t.priority === priority;
+      priority === "Toutes" || t.priority.toLowerCase() === priority.toLowerCase();
     return matchesSearch && matchesPriority;
   });
 
@@ -117,10 +117,10 @@ export default function Corbeille() {
             value={priority}
             onChange={(e) => setPriority(e.target.value)}
           >
-            <option>Toutes</option>
-            <option>Urgente</option>
-            <option>Moyenne</option>
-            <option>Basse</option>
+            <option value="Toutes">Toutes</option>
+            <option value="urgente">Urgente</option>
+            <option value="moyenne">Moyenne</option>
+            <option value="basse">Basse</option>
           </select>
         </div>
 
