@@ -8,6 +8,16 @@
       "status": "inprogress",
       "order": 1,
       "deleted": false
+    }
+  ],
+  "trash": [
+    {
+      "id": "b169",
+      "title": "ttrh",
+      "description": "yhtrhr",
+      "priority": "basse",
+      "status": "done",
+      "order": 0
     },
     {
       "id": "10",
@@ -18,39 +28,20 @@
       "order": 1
     },
     {
+      "id": "6cfb",
+      "title": "mmmmm",
+      "description": "mmmm",
+      "priority": "basse",
+      "status": "todo",
+      "order": 0
+    },
+    {
       "id": "3ae8",
       "title": "hhh",
       "description": "nkhm",
       "priority": "urgente",
-      "status": "inprogress",
-      "order": 0
-    },
-    {
-      "id": "b169",
-      "title": "ttrh",
-      "description": "yhtrhr",
-      "priority": "basse",
       "status": "done",
-      "order": 0
+      "order": 1
     }
-  ],
-  "trash": [
-    {
-      "id": "7202",
-      "title": "nnnn",
-      "description": "rttyuiytrbuiiiiiiiii",
-      "priority": "moyenne",
-      "status": "inprogress",
-      "order": 0
-    },
-    {
-      "id": "13",
-      "title": "trash1",
-      "description": "rttyuiytr",
-      "priority": "urgente",
-      "status": "inprogress",
-      "order": 0
-    }
-  ],
-  "trash": []
+  ]
 }
